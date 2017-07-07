@@ -27,4 +27,4 @@ import { CardActionsComponent } from './components/card/actions/card-actions.com
     CardActionsComponent
   ]
 })
-export class RealsterModule { }
+export class RealsterMaterialModule { }
