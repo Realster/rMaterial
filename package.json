@@ -6,7 +6,9 @@
   "scripts": {
     "minify": "uglifyjs dist/bundles/RealsterMaterial.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/RealsterMaterial.umd.min.js",
     "clean": "rimraf dist",
-    "build": "npm run clean && ngc && rollup -c && npm run minify"
+    "transpile": "ngc",
+    "package": "rollup -c",
+    "build": "npm run transpile && npm run package && npm run minify"
   },
   "author": "",
   "license": "ISC",
