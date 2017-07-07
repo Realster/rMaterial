@@ -1,0 +1,19 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>
+      <ng-content select="realster-card-header"></ng-content>
+    </md-card-title>
+  </md-card-header>
+  <div class="image">
+    <ng-content select="realster-card-image">
+    </ng-content>
+  </div>
+  <div class="content">
+    <ng-content select="realster-card-content">
+    </ng-content>
+  </div>
+  <div class="actions">
+    <ng-content select="realster-card-actions">
+    </ng-content>
+  </div>
+</md-card>
