@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && tsc"
+    "build": "npm run clean && ngc"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "@angular/compiler": "^4.2.5",
     "@angular/compiler-cli": "^4.2.5",
     "@angular/core": "^4.2.5",
+    "@types/node": "^8.0.9",
     "rimraf": "^2.6.1",
     "typescript": "^2.4.1"
   },

@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
-        "rootDir": ".",
+        "baseUrl": ".",
+        "rootDir": "src",
         "target": "es5",
         "module": "es2015",
         "moduleResolution": "node",
@@ -8,20 +9,28 @@
         "sourceMap": true,
         "strictNullChecks": true,
         "noUnusedParameters": true,
+        "skipLibCheck": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "declaration": true,
         "lib": [
-            "es5",
             "es2015",
             "dom"
-        ]
+        ],
+        "paths": {
+            "@angular/core": [
+                "node_modules/@angular/core"
+            ],
+            "rxjs/*": [
+                "node_modules/rxjs/*"
+            ]
+        }
     },
-    "exclude": [
-        "node_modules"
+    "include": [
+        "src/**/*.ts"
     ],
-    "files": [
-        "src/index.ts"
+    "exclude": [
+        "**/node_modules"
     ],
     "angularCompilerOptions": {
         "skipTemplateCodegen": true
