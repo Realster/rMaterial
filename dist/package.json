@@ -1,10 +1,10 @@
 {
     "name": "rmaterial",
-    "version": "0.0.1",
+    "version": "0.0.4",
     "description": "Realster Material Module",
     "main": "bundles/RealsterMaterial.umd.js",
-    "module": "index.js",
-    "typings": "index.d.ts",
+    "module": "src/index.js",
+    "typings": "src/index.d.ts",
     "keywords": [
         "angular",
         "angular2",
@@ -26,6 +26,7 @@
     "peerDependencies": {
         "@angular/core": "^4.2.5",
         "@angular/material": "^2.0.0-beta.8",
+        "@angular/cdk": "^2.0.0-beta.8",
         "rxjs": "^5.4.2"
     }
 }

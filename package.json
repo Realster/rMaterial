@@ -1,15 +1,15 @@
 {
   "name": "rmaterial",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
     "minify": "uglifyjs dist/bundles/RealsterMaterial.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/RealsterMaterial.umd.min.js",
-    "clean": "rimraf tmp dist/src",
+    "clean": "rimraf tmp dist/src dist/bundles",
     "transpile": "ngc",
     "package": "rollup -c",
     "inline": "gulp inline",
-    "build": "npm run inline && npm run transpile && npm run package && npm run minify && npm run clean"
+    "build": "npm run clean && npm run inline && npm run transpile && npm run package && npm run minify"
   },
   "author": "",
   "license": "ISC",
@@ -30,6 +30,7 @@
   "dependencies": {
     "@angular/core": "^4.2.5",
     "@angular/material": "^2.0.0-beta.8",
+    "@angular/cdk": "^2.0.0-beta.8",
     "rxjs": "^5.4.2"
   }
 }
