@@ -27,8 +27,8 @@ var CardComponent = (function () {
         { type: _angular_core.Component, args: [{
                     moduleId: module.id,
                     selector: 'realster-card',
-                    templateUrl: './card.component.html',
-                    styleUrls: ['./card.component.scss']
+                    template: "\n    <md-card>\n      <md-card-header>\n        <md-card-title>\n          <ng-content select=\"realster-card-header\"></ng-content>\n        </md-card-title>\n      </md-card-header>\n      <div class=\"image\">\n        <ng-content select=\"realster-card-image\">\n        </ng-content>\n      </div>\n      <div class=\"content\">\n        <ng-content select=\"realster-card-content\">\n        </ng-content>\n      </div>\n      <div class=\"actions\">\n        <ng-content select=\"realster-card-actions\">\n        </ng-content>\n      </div>\n    </md-card>\n  ",
+                    styles: ["\n    .image{padding:15px;background-color:#3F5894;text-align:center}.content{padding-top:15px;padding-bottom:15px}\n  "]
                 },] },
     ];
     /** @nocollapse */
@@ -42,8 +42,8 @@ var CardHeaderComponent = (function () {
     CardHeaderComponent.decorators = [
         { type: _angular_core.Component, args: [{
                     selector: 'realster-card-header',
-                    templateUrl: './card-header.component.html',
-                    styleUrls: ['./card-header.component.scss']
+                    template: "\n    <div class=\"card-header\">\n      <ng-content></ng-content>\n    </div>\n  ",
+                    styles: ["\n    .card-header{font-weight:bold;font-size:32px}\n  "]
                 },] },
     ];
     /** @nocollapse */
@@ -60,8 +60,8 @@ var CardImageComponent = (function () {
     CardImageComponent.decorators = [
         { type: _angular_core.Component, args: [{
                     selector: 'realster-card-image',
-                    templateUrl: './card-image.component.html',
-                    styleUrls: ['./card-image.component.scss']
+                    template: "\n    <img [src]=\"src\" />\n  ",
+                    styles: ["\n    img{width:100px}\n  "]
                 },] },
     ];
     /** @nocollapse */
@@ -78,8 +78,7 @@ var CardContentComponent = (function () {
     CardContentComponent.decorators = [
         { type: _angular_core.Component, args: [{
                     selector: 'realster-card-content',
-                    templateUrl: './card-content.component.html',
-                    styleUrls: ['./card-content.component.scss']
+                    template: "\n    <div>\n      <ng-content></ng-content>\n    </div>\n  ",
                 },] },
     ];
     /** @nocollapse */
@@ -93,8 +92,7 @@ var CardActionsComponent = (function () {
     CardActionsComponent.decorators = [
         { type: _angular_core.Component, args: [{
                     selector: 'realster-card-actions',
-                    templateUrl: './card-actions.component.html',
-                    styleUrls: ['./card-actions.component.scss']
+                    template: "\n    <ng-content></ng-content>\n  ",
                 },] },
     ];
     /** @nocollapse */

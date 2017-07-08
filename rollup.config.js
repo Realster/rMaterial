@@ -1,5 +1,5 @@
 export default {
-  entry: 'dist/index.js',
+  entry: 'dist/src/index.js',
   dest: 'dist/bundles/RealsterMaterial.umd.js',
   sourceMap: false,
   format: 'umd',
