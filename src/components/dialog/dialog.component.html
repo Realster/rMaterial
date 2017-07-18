@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="header">
+    <div class="close">
+      <button (click)="close()" md-icon-button><md-icon>close</md-icon></button>
+    </div>
+    <div class="title">
+      <div>Dialog Title</div>
+    </div>
+    <div class="ok">
+      <button (click)="ok()" md-icon-button><md-icon>done</md-icon></button>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="body">
+    <ng-template #container></ng-template>
+  </div>
+  <div class="clear"></div>
+  <div class="footer">
+    <div class="ok">
+      <button (click)="ok()" md-button>OK</button>
+    </div>
+    <div class="close">
+      <button (click)="close()" md-button>CLOSE</button>
+    </div>
+  </div>
+</div>

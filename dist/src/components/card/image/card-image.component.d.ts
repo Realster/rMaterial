@@ -1,5 +1,3 @@
-import { OnInit } from '@angular/core';
-export declare class CardImageComponent implements OnInit {
+export declare class CardImageComponent {
     src: any;
-    ngOnInit(): void;
 }

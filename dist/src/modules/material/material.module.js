@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MdCardModule, MdButtonModule } from '@angular/material';
+import { MdCardModule, MdButtonModule, MdDialogModule, MdIconModule } from '@angular/material';
 var MaterialModule = (function () {
     function MaterialModule() {
     }
@@ -7,7 +7,9 @@ var MaterialModule = (function () {
         { type: NgModule, args: [{
                     exports: [
                         MdCardModule,
-                        MdButtonModule
+                        MdButtonModule,
+                        MdDialogModule,
+                        MdIconModule
                     ]
                 },] },
     ];

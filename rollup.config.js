@@ -1,7 +1,7 @@
 export default {
   entry: 'dist/src/index.js',
   dest: 'dist/bundles/RealsterMaterial.umd.js',
-  sourceMap: false,
+  sourceMap: true,
   format: 'umd',
   moduleName: 'ng.realstermaterial',
   globals: {

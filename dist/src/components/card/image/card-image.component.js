@@ -2,9 +2,6 @@ import { Component, Input } from '@angular/core';
 var CardImageComponent = (function () {
     function CardImageComponent() {
     }
-    CardImageComponent.prototype.ngOnInit = function () {
-        console.log(this.src);
-    };
     CardImageComponent.decorators = [
         { type: Component, args: [{
                     selector: 'realster-card-image',

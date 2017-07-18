@@ -1,0 +1,79 @@
+.container {
+  width: 100%;
+  height: 100%;
+
+  @media(min-width: 700px) {
+    & {
+      width: 500px;
+      height: 800px;
+    }
+  }
+
+  .header {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid gray;
+
+    & > div {
+      float: left
+    }
+
+    .close {
+      width: 40px;
+    }
+
+    .title {
+      height: 100%;
+      width: calc(100% - 80px);
+
+      & > div {
+        font-size: 40px;
+        text-align: center;
+      }
+    }
+
+    .ok {
+      width: 40px;
+    }
+
+    @media(min-width: 700px) {
+      .close {
+        display: none;
+      }
+
+      .title {
+        width: 100%;
+      }
+
+      .ok {
+        display: none;
+      }
+    }
+  }
+
+  .body {
+    width: 100%;
+    height: calc(100% - 80px);
+    overflow: auto;
+  }
+
+  .footer {
+    display: none;
+
+    @media(min-width: 700px) {
+      & {
+        display: block;
+        width: 100%;
+        height: 40px;
+      }
+
+      & > div {
+        float: right;
+      }
+    }
+  }
+
+  .clear {
+    clear: both;
+  }
+}

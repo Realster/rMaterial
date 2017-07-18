@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const sass = require('node-sass');
+const gulpSass = require('gulp-sass');
 const inlineTemplates = require('gulp-inline-ng2-template');
 
 const INLINE_TEMPLATES = {
@@ -14,12 +15,18 @@ const INLINE_TEMPLATES = {
 };
 
 function compileSass(path, ext, file, callback) {
-  let compiledCss = sass.renderSync({
+  const compiledCss = sass.renderSync({
     data: file,
     outputStyle: 'compressed',
   });
   callback(null, compiledCss.css);
 }
+
+gulp.task('global-scss', ()=>{
+  return gulp.src('./src/global.scss')
+    .pipe(gulpSass().on('error', gulpSass.logError))
+    .pipe(gulp.dest('./dist/css'))
+});
 
 gulp.task('inline', () => {
   return gulp.src(INLINE_TEMPLATES.SRC)
