@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { Component, Inject, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 import { PortalService } from '../../services/portal.service';
 
@@ -10,16 +10,18 @@ import { PortalService } from '../../services/portal.service';
 })
 export class DialogComponent implements OnInit {
   @ViewChild('container', { read: ViewContainerRef }) container;
+  private componentRef;
 
   constructor(
     private portalService: PortalService,
     private resolver: ComponentFactoryResolver,
-    private dialogRef: MdDialogRef<DialogComponent>
+    private dialogRef: MdDialogRef<DialogComponent>,
+    @Inject(MD_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit() {
     const factory = this.resolver.resolveComponentFactory(this.portalService.Component);
-    const componentRef = this.container.createComponent(factory);
+    this.componentRef = this.container.createComponent(factory);
   }
 
   close() {
@@ -27,6 +29,11 @@ export class DialogComponent implements OnInit {
   }
 
   ok() {
-    this.dialogRef.close('ok');
+  if (this.data.okFunction && this.componentRef.instance.templateData !== null && this.componentRef.instance.templateData !== undefined) {
+      this.data.okFunction(this.componentRef.instance.templateData);
+      this.dialogRef.close('ok');
+    } else if (this.componentRef.instance.templateData === null) {
+      this.dialogRef.close('ok');
+    }
   }
 }
