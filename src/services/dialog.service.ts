@@ -1,5 +1,5 @@
 import { Injectable, ComponentFactoryResolver } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 
 import { PortalService } from './portal.service';
 
@@ -13,12 +13,15 @@ export class DialogService {
     private portalService: PortalService
   ) { }
 
-  open<T>(component): MdDialogRef<T> {
+  open<T>(component, config?: MdDialogConfig): MdDialogRef<T> {
+    if (!config) {
+      config = {
+        panelClass: 'fullscreen'
+      }
+    };
     const factory = this.resolver.resolveComponentFactory(DialogComponent);
     const ref = factory.componentType;
     this.portalService.Component = component;
-    return this.mdDialog.open<T>(ref, {
-      panelClass: 'fullscreen'
-    });
+    return this.mdDialog.open<T>(ref, config);
   }
 }
