@@ -1,6 +1,6 @@
 {
     "name": "rmaterial",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Realster Material Module",
     "main": "bundles/RealsterMaterial.umd.js",
     "module": "src/index.js",

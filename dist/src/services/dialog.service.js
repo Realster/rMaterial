@@ -8,13 +8,17 @@ var DialogService = (function () {
         this.mdDialog = mdDialog;
         this.portalService = portalService;
     }
-    DialogService.prototype.open = function (component) {
+    DialogService.prototype.open = function (component, config) {
+        if (!config) {
+            config = {
+                panelClass: 'fullscreen'
+            };
+        }
+        ;
         var factory = this.resolver.resolveComponentFactory(DialogComponent);
         var ref = factory.componentType;
         this.portalService.Component = component;
-        return this.mdDialog.open(ref, {
-            panelClass: 'fullscreen'
-        });
+        return this.mdDialog.open(ref, config);
     };
     DialogService.decorators = [
         { type: Injectable },

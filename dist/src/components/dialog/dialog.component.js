@@ -1,21 +1,28 @@
-import { Component, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { Component, Inject, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { PortalService } from '../../services/portal.service';
 var DialogComponent = (function () {
-    function DialogComponent(portalService, resolver, dialogRef) {
+    function DialogComponent(portalService, resolver, dialogRef, data) {
         this.portalService = portalService;
         this.resolver = resolver;
         this.dialogRef = dialogRef;
+        this.data = data;
     }
     DialogComponent.prototype.ngOnInit = function () {
         var factory = this.resolver.resolveComponentFactory(this.portalService.Component);
-        var componentRef = this.container.createComponent(factory);
+        this.componentRef = this.container.createComponent(factory);
     };
     DialogComponent.prototype.close = function () {
         this.dialogRef.close('close');
     };
     DialogComponent.prototype.ok = function () {
-        this.dialogRef.close('ok');
+        if (this.data.okFunction && this.componentRef.instance.templateData !== null && this.componentRef.instance.templateData !== undefined) {
+            this.data.okFunction(this.componentRef.instance.templateData);
+            this.dialogRef.close('ok');
+        }
+        else if (this.componentRef.instance.templateData === null) {
+            this.dialogRef.close('ok');
+        }
     };
     DialogComponent.decorators = [
         { type: Component, args: [{
@@ -29,6 +36,7 @@ var DialogComponent = (function () {
         { type: PortalService, },
         { type: ComponentFactoryResolver, },
         { type: MdDialogRef, },
+        { type: undefined, decorators: [{ type: Inject, args: [MD_DIALOG_DATA,] },] },
     ]; };
     DialogComponent.propDecorators = {
         'container': [{ type: ViewChild, args: ['container', { read: ViewContainerRef },] },],

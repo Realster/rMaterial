@@ -5,8 +5,10 @@ export declare class DialogComponent implements OnInit {
     private portalService;
     private resolver;
     private dialogRef;
+    data: any;
     container: any;
-    constructor(portalService: PortalService, resolver: ComponentFactoryResolver, dialogRef: MdDialogRef<DialogComponent>);
+    private componentRef;
+    constructor(portalService: PortalService, resolver: ComponentFactoryResolver, dialogRef: MdDialogRef<DialogComponent>, data: any);
     ngOnInit(): void;
     close(): void;
     ok(): void;

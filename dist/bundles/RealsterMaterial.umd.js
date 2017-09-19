@@ -47,20 +47,27 @@ var PortalService = (function () {
 }());
 
 var DialogComponent = (function () {
-    function DialogComponent(portalService, resolver, dialogRef) {
+    function DialogComponent(portalService, resolver, dialogRef, data) {
         this.portalService = portalService;
         this.resolver = resolver;
         this.dialogRef = dialogRef;
+        this.data = data;
     }
     DialogComponent.prototype.ngOnInit = function () {
         var factory = this.resolver.resolveComponentFactory(this.portalService.Component);
-        var componentRef = this.container.createComponent(factory);
+        this.componentRef = this.container.createComponent(factory);
     };
     DialogComponent.prototype.close = function () {
         this.dialogRef.close('close');
     };
     DialogComponent.prototype.ok = function () {
-        this.dialogRef.close('ok');
+        if (this.data.okFunction && this.componentRef.instance.templateData !== null && this.componentRef.instance.templateData !== undefined) {
+            this.data.okFunction(this.componentRef.instance.templateData);
+            this.dialogRef.close('ok');
+        }
+        else if (this.componentRef.instance.templateData === null) {
+            this.dialogRef.close('ok');
+        }
     };
     DialogComponent.decorators = [
         { type: _angular_core.Component, args: [{
@@ -74,6 +81,7 @@ var DialogComponent = (function () {
         { type: PortalService, },
         { type: _angular_core.ComponentFactoryResolver, },
         { type: _angular_material.MdDialogRef, },
+        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_material.MD_DIALOG_DATA,] },] },
     ]; };
     DialogComponent.propDecorators = {
         'container': [{ type: _angular_core.ViewChild, args: ['container', { read: _angular_core.ViewContainerRef },] },],
@@ -87,13 +95,17 @@ var DialogService = (function () {
         this.mdDialog = mdDialog;
         this.portalService = portalService;
     }
-    DialogService.prototype.open = function (component) {
+    DialogService.prototype.open = function (component, config) {
+        if (!config) {
+            config = {
+                panelClass: 'fullscreen'
+            };
+        }
+        
         var factory = this.resolver.resolveComponentFactory(DialogComponent);
         var ref = factory.componentType;
         this.portalService.Component = component;
-        return this.mdDialog.open(ref, {
-            panelClass: 'fullscreen'
-        });
+        return this.mdDialog.open(ref, config);
     };
     DialogService.decorators = [
         { type: _angular_core.Injectable },
