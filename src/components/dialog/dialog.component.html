@@ -1,13 +1,13 @@
 <div class="container">
   <div class="header">
-    <div class="close">
+    <div class="close mobile">
       <button (click)="close()" md-icon-button><md-icon>close</md-icon></button>
     </div>
     <div class="title">
-      <div>Dialog Title</div>
+      <div>{{ dialogTitle }}</div>
     </div>
-    <div class="ok">
-      <button (click)="ok()" md-icon-button><md-icon>done</md-icon></button>
+    <div class="ok mobile">
+      <button (click)="ok()" [disabled]="disableStaus" md-icon-button>{{ okButtonTitle || 'OK'}}</button>
     </div>
   </div>
   <div class="clear"></div>
@@ -17,10 +17,10 @@
   <div class="clear"></div>
   <div class="footer">
     <div class="ok">
-      <button (click)="ok()" md-button>OK</button>
+      <button class="button" (click)="ok()" [disabled]="disableStaus" md-button>{{ okButtonTitle || 'OK'}}</button>
     </div>
     <div class="close">
-      <button (click)="close()" md-button>CLOSE</button>
+      <button class="button" (click)="close()" md-button>CLOSE</button>
     </div>
   </div>
 </div>
