@@ -1,15 +1,25 @@
-import { OnInit, ComponentFactoryResolver } from '@angular/core';
+import { OnInit, OnDestroy, AfterViewChecked, ComponentFactoryResolver, ChangeDetectorRef } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { PortalService } from '../../services/portal.service';
-export declare class DialogComponent implements OnInit {
+import { DialogService } from '../../services/dialog.service';
+export declare class DialogComponent implements OnInit, OnDestroy, AfterViewChecked {
+    private dialogService;
     private portalService;
     private resolver;
     private dialogRef;
+    private cdr;
     data: any;
     container: any;
+    dialogTitle: string;
+    disableStaus: boolean;
+    okButtonTitle: string;
+    cancelButtonTitle: string;
     private componentRef;
-    constructor(portalService: PortalService, resolver: ComponentFactoryResolver, dialogRef: MdDialogRef<DialogComponent>, data: any);
+    private disableStatusSubscription;
+    constructor(dialogService: DialogService, portalService: PortalService, resolver: ComponentFactoryResolver, dialogRef: MdDialogRef<DialogComponent>, cdr: ChangeDetectorRef, data: any);
     ngOnInit(): void;
+    ngAfterViewChecked(): void;
+    ngOnDestroy(): void;
     close(): void;
     ok(): void;
 }

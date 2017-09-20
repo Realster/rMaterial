@@ -17,10 +17,10 @@
   <div class="clear"></div>
   <div class="footer">
     <div class="ok">
-      <button class="button" (click)="ok()" [disabled]="disableStaus" md-button>{{ okButtonTitle || 'OK'}}</button>
+      <button class="button" (click)="ok()" [disabled]="disableStaus" md-button>{{ okButtonTitle || 'ok'}}</button>
     </div>
     <div class="close">
-      <button class="button" (click)="close()" md-button>CLOSE</button>
+      <button class="button" (click)="close()" md-button>{{ cancelButtonTitle || 'cancel'}}</button>
     </div>
   </div>
 </div>

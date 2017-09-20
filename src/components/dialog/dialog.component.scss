@@ -100,6 +100,7 @@
 
     .button {
       color: #002f66;
+      text-transform: uppercase;
 
       &[disabled] {
         color: rgba(0, 0, 0, 0.38);

@@ -15,6 +15,7 @@ export class DialogComponent implements OnInit, OnDestroy, AfterViewChecked {
   public dialogTitle = '';
   public disableStaus = true;
   public okButtonTitle: string;
+  public cancelButtonTitle: string;
   
   private componentRef;
   private disableStatusSubscription = new Subscription;
@@ -36,6 +37,9 @@ export class DialogComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
     if (this.data.okButtonTitle) {
       this.okButtonTitle = this.data.okButtonTitle;
+    }
+    if (this.data.cancelButtonTitle) {
+      this.cancelButtonTitle = this.data.cancelButtonTitle;
     }
     if (this.data.originalData) {
       this.componentRef.instance.templateData = this.data.originalData;
