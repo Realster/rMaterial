@@ -1,5 +1,6 @@
 import { Injectable, ComponentFactoryResolver } from '@angular/core';
 import { MdDialog } from '@angular/material';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { PortalService } from './portal.service';
 import { DialogComponent } from '../components/dialog/dialog.component';
 var DialogService = (function () {
@@ -7,6 +8,7 @@ var DialogService = (function () {
         this.resolver = resolver;
         this.mdDialog = mdDialog;
         this.portalService = portalService;
+        this.disableStatus = new ReplaySubject();
     }
     DialogService.prototype.open = function (component, config) {
         if (!config) {

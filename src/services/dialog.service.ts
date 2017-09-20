@@ -1,5 +1,6 @@
 import { Injectable, ComponentFactoryResolver } from '@angular/core';
 import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { ReplaySubject } from 'rxjs/ReplaySubject'
 
 import { PortalService } from './portal.service';
 
@@ -7,6 +8,8 @@ import { DialogComponent } from '../components/dialog/dialog.component';
 
 @Injectable()
 export class DialogService {
+  public disableStatus = new ReplaySubject<boolean>();
+  
   constructor(
     private resolver: ComponentFactoryResolver,
     private mdDialog: MdDialog,
