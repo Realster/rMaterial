@@ -11,7 +11,8 @@
     "inline": "gulp global-scss && gulp inline",
     "build": "npm run clean && npm run inline && npm run transpile && npm run package && npm run minify && rimraf tmp"
   },
-  "author": "",
+  "author": "AmirSaber Sharifi, Sangmin Lee",
+  "email": "asharifi@gorealster.com, slee@gorealster.com",
   "license": "ISC",
   "devDependencies": {
     "@angular/common": "^4.2.5",
