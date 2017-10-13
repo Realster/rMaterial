@@ -1,5 +1,5 @@
 import { OnInit, OnDestroy, AfterViewChecked, ComponentFactoryResolver, ChangeDetectorRef } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 import { PortalService } from '../../services/portal.service';
 import { DialogService } from '../../services/dialog.service';
 export declare class DialogComponent implements OnInit, OnDestroy, AfterViewChecked {
@@ -16,7 +16,7 @@ export declare class DialogComponent implements OnInit, OnDestroy, AfterViewChec
     cancelButtonTitle: string;
     private componentRef;
     private disableStatusSubscription;
-    constructor(dialogService: DialogService, portalService: PortalService, resolver: ComponentFactoryResolver, dialogRef: MdDialogRef<DialogComponent>, cdr: ChangeDetectorRef, data: any);
+    constructor(dialogService: DialogService, portalService: PortalService, resolver: ComponentFactoryResolver, dialogRef: MatDialogRef<DialogComponent>, cdr: ChangeDetectorRef, data: any);
     ngOnInit(): void;
     ngAfterViewChecked(): void;
     ngOnDestroy(): void;

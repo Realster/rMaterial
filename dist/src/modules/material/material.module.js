@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { MdCardModule, MdButtonModule, MdDialogModule, MdIconModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatDialogModule, MatIconModule } from '@angular/material';
 var MaterialModule = (function () {
     function MaterialModule() {
     }
     MaterialModule.decorators = [
         { type: NgModule, args: [{
                     exports: [
-                        MdCardModule,
-                        MdButtonModule,
-                        MdDialogModule,
-                        MdIconModule
+                        MatCardModule,
+                        MatButtonModule,
+                        MatDialogModule,
+                        MatIconModule
                     ]
                 },] },
     ];

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { 
-  MdCardModule,
-  MdButtonModule,
-  MdDialogModule,
-  MdIconModule
+  MatCardModule,
+  MatButtonModule,
+  MatDialogModule,
+  MatIconModule
 } from '@angular/material';
 
 @NgModule({
   exports: [
-    MdCardModule,
-    MdButtonModule,
-    MdDialogModule,
-    MdIconModule
+    MatCardModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule
   ]
 })
 export class MaterialModule { }

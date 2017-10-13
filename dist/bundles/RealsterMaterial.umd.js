@@ -10,10 +10,10 @@ var MaterialModule = (function () {
     MaterialModule.decorators = [
         { type: _angular_core.NgModule, args: [{
                     exports: [
-                        _angular_material.MdCardModule,
-                        _angular_material.MdButtonModule,
-                        _angular_material.MdDialogModule,
-                        _angular_material.MdIconModule
+                        _angular_material.MatCardModule,
+                        _angular_material.MatButtonModule,
+                        _angular_material.MatDialogModule,
+                        _angular_material.MatIconModule
                     ]
                 },] },
     ];
@@ -102,7 +102,7 @@ var DialogComponent = (function () {
     DialogComponent.decorators = [
         { type: _angular_core.Component, args: [{
                     selector: 'app-realster-dialog',
-                    template: "\n    <div class=\"container\">\n      <div class=\"header\">\n        <div class=\"close mobile\">\n          <button (click)=\"close()\" md-icon-button><md-icon>close</md-icon></button>\n        </div>\n        <div class=\"title\">\n          <div>{{ dialogTitle }}</div>\n        </div>\n        <div class=\"ok mobile\">\n          <button (click)=\"ok()\" [disabled]=\"disableStaus\" md-icon-button>{{ okButtonTitle || 'OK'}}</button>\n        </div>\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"body\">\n        <ng-template #container></ng-template>\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"footer\">\n        <div class=\"ok\">\n          <button class=\"button\" (click)=\"ok()\" [disabled]=\"disableStaus\" md-button>{{ okButtonTitle || 'ok'}}</button>\n        </div>\n        <div class=\"close\">\n          <button class=\"button\" (click)=\"close()\" md-button>{{ cancelButtonTitle || 'cancel'}}</button>\n        </div>\n      </div>\n    </div>\n  ",
+                    template: "\n    <div class=\"container\">\n      <div class=\"header\">\n        <div class=\"close mobile\">\n          <button (click)=\"close()\" mat-icon-button><mat-icon>close</mat-icon></button>\n        </div>\n        <div class=\"title\">\n          <div>{{ dialogTitle }}</div>\n        </div>\n        <div class=\"ok mobile\">\n          <button (click)=\"ok()\" [disabled]=\"disableStaus\" mat-icon-button>{{ okButtonTitle || 'OK'}}</button>\n        </div>\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"body\">\n        <ng-template #container></ng-template>\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"footer\">\n        <div class=\"ok\">\n          <button class=\"button\" (click)=\"ok()\" [disabled]=\"disableStaus\" mat-button>{{ okButtonTitle || 'ok'}}</button>\n        </div>\n        <div class=\"close\">\n          <button class=\"button\" (click)=\"close()\" mat-button>{{ cancelButtonTitle || 'cancel'}}</button>\n        </div>\n      </div>\n    </div>\n  ",
                     styles: ["\n    .container{width:100%;height:100%}@media (min-width: 700px){.container{width:440px;height:auto}}.container .header{padding-left:8px;padding-right:8px;width:100%;height:48px}.container .header>div{float:left}.container .header .close{width:40px}.container .header .close button{color:#002f66 !important}.container .header .close.mobile{height:48px;line-height:48px}.container .header .title{height:100%;width:calc(100% - 80px)}.container .header .title>div{padding-left:12px;font-size:20px;font-weight:500;line-height:48px}.container .header .ok{width:40px}.container .header .ok button{color:#002f66 !important}.container .header .ok.mobile{height:48px;line-height:48px}@media (min-width: 700px){.container .header .close{display:none}.container .header .title{width:100%}.container .header .ok{display:none}}@media only screen and (max-width: 699px){.container .header{background-color:#FAFAFA;box-shadow:0 4px 4px 0 rgba(0,0,0,0.24),0 0 4px 0 rgba(0,0,0,0.12)}}.container .body{width:100%;padding:20px 20px 12px;overflow-y:auto;overflow-x:hidden}.container .footer{padding-top:8px;padding-bottom:8px;display:none}@media (min-width: 700px){.container .footer{display:block;width:100%;height:52px}.container .footer>div{float:right}}.container .footer .button{color:#002f66;text-transform:uppercase}.container .footer .button[disabled]{color:rgba(0,0,0,0.38)}.container .clear{clear:both}::ng-deep .fullscreen{padding:0}@media (max-width: 699px){::ng-deep .fullscreen{width:100vw;height:100vh}::ng-deep .fullscreen>.mat-dialog-container{max-width:100%}}\n  "]
                 },] },
     ];
@@ -111,9 +111,9 @@ var DialogComponent = (function () {
         { type: DialogService, },
         { type: PortalService, },
         { type: _angular_core.ComponentFactoryResolver, },
-        { type: _angular_material.MdDialogRef, },
+        { type: _angular_material.MatDialogRef, },
         { type: _angular_core.ChangeDetectorRef, },
-        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_material.MD_DIALOG_DATA,] },] },
+        { type: undefined, decorators: [{ type: _angular_core.Inject, args: [_angular_material.MAT_DIALOG_DATA,] },] },
     ]; };
     DialogComponent.propDecorators = {
         'container': [{ type: _angular_core.ViewChild, args: ['container', { read: _angular_core.ViewContainerRef },] },],
@@ -146,7 +146,7 @@ var DialogService = (function () {
     /** @nocollapse */
     DialogService.ctorParameters = function () { return [
         { type: _angular_core.ComponentFactoryResolver, },
-        { type: _angular_material.MdDialog, },
+        { type: _angular_material.MatDialog, },
         { type: PortalService, },
     ]; };
     return DialogService;
@@ -159,7 +159,7 @@ var CardComponent = (function () {
         { type: _angular_core.Component, args: [{
                     moduleId: module.id,
                     selector: 'realster-card',
-                    template: "\n    <md-card>\n      <md-card-header>\n        <md-card-title>\n          <ng-content select=\"realster-card-header\"></ng-content>\n        </md-card-title>\n      </md-card-header>\n      <div class=\"image\">\n        <ng-content select=\"realster-card-image\">\n        </ng-content>\n      </div>\n      <div class=\"content\">\n        <ng-content select=\"realster-card-content\">\n        </ng-content>\n      </div>\n      <div class=\"actions\">\n        <ng-content select=\"realster-card-actions\">\n        </ng-content>\n      </div>\n    </md-card>\n  ",
+                    template: "\n    <mat-card>\n      <mat-card-header>\n        <mat-card-title>\n          <ng-content select=\"realster-card-header\"></ng-content>\n        </mat-card-title>\n      </mat-card-header>\n      <div class=\"image\">\n        <ng-content select=\"realster-card-image\">\n        </ng-content>\n      </div>\n      <div class=\"content\">\n        <ng-content select=\"realster-card-content\">\n        </ng-content>\n      </div>\n      <div class=\"actions\">\n        <ng-content select=\"realster-card-actions\">\n        </ng-content>\n      </div>\n    </mat-card>\n  ",
                     styles: ["\n    .image{padding:15px;background-color:#3F5894;text-align:center}.content{padding-top:15px;padding-bottom:15px}\n  "]
                 },] },
     ];

@@ -1,5 +1,5 @@
 import { Injectable, ComponentFactoryResolver } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { PortalService } from './portal.service';
 import { DialogComponent } from '../components/dialog/dialog.component';
@@ -28,7 +28,7 @@ var DialogService = (function () {
     /** @nocollapse */
     DialogService.ctorParameters = function () { return [
         { type: ComponentFactoryResolver, },
-        { type: MdDialog, },
+        { type: MatDialog, },
         { type: PortalService, },
     ]; };
     return DialogService;

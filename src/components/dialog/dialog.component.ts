@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, OnDestroy, AfterViewChecked, ViewChild, ViewContainerRef, ComponentFactoryResolver, ChangeDetectorRef } from '@angular/core';
-import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Subscription } from 'rxjs/Subscription';
 
 import { PortalService } from '../../services/portal.service';
@@ -24,9 +24,9 @@ export class DialogComponent implements OnInit, OnDestroy, AfterViewChecked {
     private dialogService: DialogService,
     private portalService: PortalService,
     private resolver: ComponentFactoryResolver,
-    private dialogRef: MdDialogRef<DialogComponent>,
+    private dialogRef: MatDialogRef<DialogComponent>,
     private cdr: ChangeDetectorRef,
-    @Inject(MD_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit() {

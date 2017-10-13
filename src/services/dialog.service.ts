@@ -1,5 +1,5 @@
 import { Injectable, ComponentFactoryResolver } from '@angular/core';
-import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 import { ReplaySubject } from 'rxjs/ReplaySubject'
 
 import { PortalService } from './portal.service';
@@ -12,11 +12,11 @@ export class DialogService {
   
   constructor(
     private resolver: ComponentFactoryResolver,
-    private mdDialog: MdDialog,
+    private mdDialog: MatDialog,
     private portalService: PortalService
   ) { }
 
-  open<T>(component, config?: MdDialogConfig): MdDialogRef<T> {
+  open<T>(component, config?: MatDialogConfig): MatDialogRef<T> {
     if (!config) {
       config = {
         panelClass: 'fullscreen'

@@ -1,5 +1,5 @@
 import { ComponentFactoryResolver } from '@angular/core';
-import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { PortalService } from './portal.service';
 export declare class DialogService {
@@ -7,6 +7,6 @@ export declare class DialogService {
     private mdDialog;
     private portalService;
     disableStatus: ReplaySubject<boolean>;
-    constructor(resolver: ComponentFactoryResolver, mdDialog: MdDialog, portalService: PortalService);
-    open<T>(component: any, config?: MdDialogConfig): MdDialogRef<T>;
+    constructor(resolver: ComponentFactoryResolver, mdDialog: MatDialog, portalService: PortalService);
+    open<T>(component: any, config?: MatDialogConfig): MatDialogRef<T>;
 }
